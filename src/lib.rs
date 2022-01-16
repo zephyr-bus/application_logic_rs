@@ -11,6 +11,7 @@ extern "C" {
     pub fn printk(format: *const u8, ...);
     pub fn rs_msleep(ms: i32);
 }
+
 macro_rules! k_msleep_unsafe {
     ($e:expr) => {
         unsafe {
@@ -25,11 +26,10 @@ macro_rules! printk_unsafe {
 			printk($string.as_ptr());
 		}
 	};
-	($format:expr, $($e:expr),+) => {
+	($format:literal, $($e:expr),+) => {
 		unsafe {
 			printk($format.as_ptr(), $($e),+);
 		}
-
 	};
 }
 
