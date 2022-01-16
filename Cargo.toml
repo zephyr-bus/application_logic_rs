@@ -1,0 +1,16 @@
+[package]
+name = "application_logic_rs"
+version = "0.1.0"
+authors = ["Rodrigo Peixoto <rodrigopex@edge.ufal.br>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "application_logic_rs"
+crate-type = ["staticlib"] # Creates static lib
+
+[dependencies]
+
+# Here, I specify the dependency only for thumbv7em-none-eabihf arch
+[target.thumbv7em-none-eabi.dependencies]
+panic-halt = "0.2.0"
